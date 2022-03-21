@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>height converter</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height:750px;
+            background-image: linear-gradient(to top right, rgb(68, 179, 162), rgb(102, 159, 137), rgb(137, 139, 113), rgb(171, 119, 88), rgb(206, 99, 64), rgb(240, 79, 39), rgba(217, 70, 71, 0.94), rgba(194, 61, 103, 0.88), rgba(171, 52, 136, 0.82), rgba(147, 43, 168, 0.75), rgba(124, 34, 200, 0.69), rgba(101, 25, 232, 0.63));
+        }
+        .container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height:60vh;
+            border: 2px solid black;
+            background-image: linear-gradient(to top right, rgb(29, 46, 235), rgb(71, 45, 220), rgb(113, 43, 205), rgb(156, 42, 189), rgb(198, 40, 174), rgb(240, 39, 159), rgba(204, 71, 139, 0.94), rgba(168, 103, 118, 0.88), rgba(133, 136, 98, 0.82), rgba(97, 168, 77, 0.75), rgba(61, 200, 57, 0.69), rgba(25, 232, 36, 0.63));
+        }
+        .container>*{
+            margin:10px;
+        }
+        h1{
+            font-size: 50px;
+            text-align: center;
+        }
+            
+            button {background-image: linear-gradient(to right, #ff6e7f 0%, #bfe9ff  51%, #ff6e7f  100%)}
+            button {
+            margin: 10px;
+            padding: 15px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;            
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            display: block;
+            cursor: pointer;
+          }
+
+          button:hover {
+            background-position: right center; /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
+          }
+        label{
+            margin-right: 20px;
+            font-size: 20px;
+        }
+        .container div:nth-child(3)>label{
+            margin-right: 10px;
+        }
+        input{
+            padding: 10px;
+        }
+        input:focus{
+            background-color: pink;
+        }
+        #box{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #box label{
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        @media screen and (max-width:425px) {
+            h1{
+                font-size: 40px;
+            }
+            .container{
+                height: 80vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>height converter calculator</h1>
+        <div>
+            <label for="">feets</label>
+            <input type="text" name="" id="feets">
+        </div>
+        <div>
+            <label for="">inches</label>
+            <input type="text" name="" id="inches">
+        </div>
+        <button type="submit" id="submit">Convert</button>
+        <div id="box">
+            <label for="">Height in cm</label>
+            <input type="text" name="" id="result" disabled>
+        </div>
+    </div>
+    <script>
+        document.getElementById("submit").addEventListener("click",function(){
+            var feet=parseInt(document.getElementById("feets").value*12);
+            var inches=parseInt(document.getElementById("inches").value);
+            var cm=(feet+inches)*2.54;
+            var n=cm.toFixed(0);
+            document.getElementById("result").value=n;
+        })
+    </script>
+</body>
+</html>
